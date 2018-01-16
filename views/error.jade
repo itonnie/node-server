@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1.text-danger.text-center= message
+  h2.text-muted.text-center= error.status
+  .card.card-body
+     .card-text 
+      pre #{error.stack}

@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  nav.navbar.bg-faded.navbar-light
+    .row
+      .col-sm-3
+        h2.navbar-brand Contacts Manager
+      .col-sm-6
+      .col-sm-3
+        button#logoutbtn.btn.btn-default Logout
+
+  .container
+    .jumbotron(ng-controller="homeCtrl")
+
+      div
+        .row
+          .col-sm-3
+            input.form-control(type="text", placeholder="name", name="name", ng-model="name")
+          .col-sm-3
+            input.form-control(type="email", placeholder="email", name="email", ng-model="email")
+          .col-sm-3
+            input.form-control(type="phone", placeholder="phone", name="phone", ng-model="phone")
+          .col-sm-3
+            button#addContact.btn.btn-success(ng-click="addContact()") Add Contact
+
+      table.table.table-hover
+        thead
+          tr
+            th Name
+            th Email
+            th Phone
+            th Action
+        tbody
+          tr(ng-repeat="contact in contacts")
+            td(scope="row") {{contact.name}}
+            td {{contact.email}}
+            td {{contact.number}}
+            td 
+              button.btn.btn-danger(ng-click="delete(contact._id)") Delete
+
+  script(src="/javascripts/index.js")
+

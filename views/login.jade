@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    nav.navbar.bg-light
+        h1 Login or signup to continue
+
+    .container
+        .jumbotron
+
+            .row
+                .col-sm-6.tab.active-tab(data-tab="login")
+                    p Login
+                .col-sm-6.tab(data-tab="signup")
+                    p Create Account
+
+            #login.panel.active-panel
+
+                br
+                form#loginForm(action="/auth/login", method="POST")
+                    input.form-control(placeholder="username", type="text", name="username", id="username", required)
+                    br
+                    input.form-control(placeholder="password", type="password", name="password", id="password", required)
+                    br
+                    input.btn.btn-success(type="submit", value="Login")
+
+            #signup.panel
+
+                br
+                form#signinForm(action="/auth/signup", method="POST")
+                    input.form-control(placeholder="username", type="text", name="susername", id="susername", required)
+                    br
+                    input.form-control(placeholder="password", type="password", name="spassword", id="spassword", required)
+                    br
+                    input.btn.btn-success(type="submit", value="Sign Up")
+
+    script(src="/javascripts/login.js")
+
+    
